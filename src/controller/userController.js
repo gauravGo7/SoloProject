@@ -1,7 +1,7 @@
 const userModel = require("../models/userModel");
 const bcrypt = require("bcrypt");
 const jwt = require("jsonwebtoken")
-const { validPhone, validEmail, validValu, validName, validObjectId, validPassword, isValidBody } = require("../validator/validation");
+const { validPhone, validEmail, validName, validPassword} = require("../validator/validation");
 
 
 exports.createUser = async function (req, res) {
@@ -10,7 +10,7 @@ exports.createUser = async function (req, res) {
 
     if (Object.keys(data).length == 0) return res.status(400).send({ status: false, message: "Please give some data" });
 
-    let { fname, lname, email, phone, password} = data;
+    let { fname, lname, email, phone, password,confirmPassword} = data;
 
     if (!fname) return res.status(400).send({ status: false, message: "FirstName is mandatory" })
     if (!lname) return res.status(400).send({ status: false, message: "lastName is mandatory" })
@@ -18,6 +18,7 @@ exports.createUser = async function (req, res) {
     if (!phone) return res.status(400).send({ status: false, message: "Phone is mandatory" })
 
     if (!password) return res.status(400).send({ status: false, message: "Password is mandatory" })
+    if (!confirmPassword) return res.status(400).send({ status: false, message: "Password is mandatory" })
 
     if (!validName(fname.trim())) return res.status(400).send({ status: false, message: "FirstName should be in alphabets only" })
     if (!validName(lname.trim())) return res.status(400).send({ status: false, message: "LastName should be in alphabets only" })
@@ -39,7 +40,7 @@ exports.createUser = async function (req, res) {
 
 
     const userData = {
-      fname: fname, lname: lname, profileImage: url, email: email,
+      fname: fname, lname: lname, email: email,
       phone: phone, password: hash, 
     }
 

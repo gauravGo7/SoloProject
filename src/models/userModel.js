@@ -35,6 +35,13 @@ const userSchema = new mongoose.Schema(
             maxLength: 15,
             trim:true
         },
+        confirmPassword: {
+            type: String,
+            required: true,
+            minLength: 8,
+            maxLength: 15,
+            trim:true
+        }
         }
     , { timestamps: true });
 
