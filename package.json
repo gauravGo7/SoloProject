@@ -1,0 +1,25 @@
+{
+  "name": "soloproject",
+  "version": "1.0.0",
+  "description": "",
+  "main": "index.js",
+  "scripts": {
+    "test": "echo \"Error: no test specified\" && exit 1"
+  },
+  "repository": {
+    "type": "git",
+    "url": "git+https://github.com/gauravGo7/SoloProject.git"
+  },
+  "author": "",
+  "license": "ISC",
+  "bugs": {
+    "url": "https://github.com/gauravGo7/SoloProject/issues"
+  },
+  "homepage": "https://github.com/gauravGo7/SoloProject#readme",
+  "dependencies": {
+    "express": "^4.18.2",
+    "mongoose": "^7.0.3",
+    "node-module": "^2.0.0",
+    "nodemon": "^2.0.22"
+  }
+}
